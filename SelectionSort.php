@@ -3,7 +3,7 @@
 $stringofnumbers = $_GET['numbers'];
 
 $list_of_numbers = [];
-$list_of_numbers = $stringofnumbers.explode(",", $stringofnumbers);
+$list_of_numbers = explode(",", $stringofnumbers);
 
 $how_many_numbers = sizeof($list_of_numbers);
 for($i=0; $i < $how_many_numbers; $i++){
@@ -20,4 +20,8 @@ for($i=0; $i < $how_many_numbers; $i++){
     $list_of_numbers[$i] = $temporary_number;
 }
 
-echo json_encode($list_of_numbers);
+implode(",",$list_of_numbers);
+$response = [];
+$response["the sorted numbers"] = $list_of_numbers;
+
+echo json_encode($response);
